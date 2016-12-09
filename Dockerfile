@@ -5,7 +5,8 @@ MAINTAINER Minho <longfei6671@163.com>
 ADD conf/php.ini /usr/local/etc/php/php.ini
 ADD conf/vhosts.conf /etc/apache2/sites-enabled/vhosts.conf
 
-RUN ls -s /etc/apache2/mods-enabled/rewrite.load /etc/apache2/mods-available/rewrite.load  
+RUN ls -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load 
+
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
