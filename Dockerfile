@@ -1,4 +1,4 @@
-FROM 7.0-apache
+FROM php:7.0-apache
 
 MAINTAINER Minho <longfei6671@163.com>
 
