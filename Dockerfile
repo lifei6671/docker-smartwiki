@@ -32,7 +32,9 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 
 RUN git clone https://github.com/lifei6671/SmartWiki.git \
-	&& && chmod -R 0777 /var/www/html && cp SmartWiki/ /var/www/html/ && cd /var/www/html/ \
+	&& && chmod -R 0777 /var/www/html \
+	&& cp SmartWiki/ /var/www/html/ \
+	&& cd /var/www/html/ \
 	&& composer install \
 	&& php artisan key:generate
 	
