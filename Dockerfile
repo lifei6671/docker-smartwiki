@@ -35,6 +35,9 @@ RUN git clone https://github.com/lifei6671/SmartWiki.git \
 	&& chmod -R 0777 /var/www/html \
 	&& cp -r SmartWiki/. /var/www/html \
 	&& cd /var/www/html/ \
+	&& mv .env.example .env \
 	&& composer install \
+	&& php artisan clear-compiled \
+	&& php artisan optimize \
 	&& php artisan key:generate
 	
