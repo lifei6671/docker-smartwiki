@@ -45,3 +45,6 @@ RUN git clone https://github.com/lifei6671/SmartWiki.git \
 
 COPY apache2-foreground /usr/local/bin/
 WORKDIR /var/www/html
+
+EXPOSE 80
+CMD ["apache2-foreground"]
