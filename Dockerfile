@@ -5,7 +5,6 @@ MAINTAINER Minho <longfei6671@163.com>
 ADD conf/php.ini /usr/local/etc/php/php.ini
 ADD conf/vhosts.conf /etc/apache2/sites-enabled/vhosts.conf
 
-RUN ls -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load 
 
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
@@ -42,4 +41,5 @@ RUN git clone https://github.com/lifei6671/SmartWiki.git \
 	&& php artisan clear-compiled \
 	&& php artisan optimize \
 	&& php artisan key:generate
-	
+
+RUN ls -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load 
