@@ -43,3 +43,10 @@ RUN git clone https://github.com/lifei6671/SmartWiki.git \
 	&& php artisan optimize \
 	&& php artisan key:generate
 
+
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+
+COPY apache2-foreground /usr/local/bin/
+WORKDIR /var/www/html
