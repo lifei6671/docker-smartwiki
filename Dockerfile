@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
 		libbz2-dev \
 		libmemcached-dev \
 		libpcre3-dev \
-    && docker-php-ext-install -j$(nproc) gd mcrypt mbstring  bz2 ctype zip pdo pdo_mysql
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+	&& docker-php-ext-install -j$(nproc) gd mcrypt mbstring  bz2 ctype zip pdo pdo_mysql
 	
 #安装Memcached扩展，不需要的可以删除
 WORKDIR /usr/src/php/ext/
