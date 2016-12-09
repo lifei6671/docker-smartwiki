@@ -44,6 +44,8 @@ RUN git clone https://github.com/lifei6671/SmartWiki.git \
 	&& php artisan key:generate
 
 COPY apache2-foreground /usr/local/bin/
+RUN chmod 0777 /usr/local/bin/apache2-foreground
+
 WORKDIR /var/www/html
 
 EXPOSE 80
