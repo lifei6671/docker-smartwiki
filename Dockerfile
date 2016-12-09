@@ -3,7 +3,7 @@ FROM php:7.0-apache
 MAINTAINER Minho <longfei6671@163.com>
 
 ADD conf/php.ini /usr/local/etc/php/php.ini
-ADD conf/vhosts.conf /etc/apache2/vhosts.conf
+ADD conf/vhosts.conf /etc/apache2/sites-enabled/vhosts.conf
 
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
