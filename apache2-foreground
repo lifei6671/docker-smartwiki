@@ -22,8 +22,11 @@ if [ ! -f  "$install" ]; then
 fi
 
 if [ ! -z $APACHE_HOST ]; then
-	cp /etc/apache2/sites-enabled/apache.template /etc/apache2/sites-enabled/${APACHE_HOST}.conf
-	sed -i "s/{HOST}/${APACHE_HOST}/g"  /etc/apache2/sites-enabled/${APACHE_HOST}.conf
+	configFile=/etc/apache2/sites-enabled/${APACHE_HOST}.conf
+	if [ ! -f "$configFile" ]; then
+		cp /etc/apache2/sites-enabled/apache.template $configFile
+		sed -i "s/{HOST}/${APACHE_HOST}/g" $configFile
+	fi
 fi
 
 exec apache2 -DFOREGROUND "$@"
