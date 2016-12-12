@@ -14,8 +14,11 @@ fi
 : "${APACHE_PID_FILE:=${APACHE_RUN_DIR:=/var/run/apache2}/apache2.pid}"
 rm -f "$APACHE_PID_FILE"
 
-if [ $DB_HOST ]; then
-	echo "" > /var/www/html/public/install.lock
+install=/var/www/html/public/install.lock
+
+if [ ! -f  "$install" ]; then
+	cd /var/www/html
+	php artisan smartwiki:install --dbHost=$DB_HOST--dbName=$DB_DATABASE --dbPort=$DB_PORT --dbUser=$DB_USERNAME --dbPassword=$DB_PASSWORD --account=$ACCOUNT --password=$PASSWORD --email=$EMAIL
 fi
 
 exec apache2 -DFOREGROUND "$@"
