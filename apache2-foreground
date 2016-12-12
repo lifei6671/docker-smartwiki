@@ -18,7 +18,7 @@ install=/var/www/html/public/install.lock
 
 if [ ! -f  "$install" ]; then
 	cd /var/www/html
-	php artisan smartwiki:install --dbHost=$DB_HOST--dbName=$DB_DATABASE --dbPort=$DB_PORT --dbUser=$DB_USERNAME --dbPassword=$DB_PASSWORD --account=$ACCOUNT --password=$PASSWORD --email=$EMAIL
+	php artisan smartwiki:install --dbHost=$DB_HOST --dbName=$DB_DATABASE --dbPort=$DB_PORT --dbUser=$DB_USERNAME --dbPassword=$DB_PASSWORD --account=$ACCOUNT --password=$PASSWORD --email=$EMAIL
 fi
 
 if [ ! -z $APACHE_HOST ]; then
