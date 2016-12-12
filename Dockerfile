@@ -4,6 +4,7 @@ MAINTAINER Minho <longfei6671@163.com>
 
 ADD conf/php.ini /usr/local/etc/php/php.ini
 ADD conf/vhosts.conf /etc/apache2/sites-enabled/vhosts.conf
+ADD conf/apache.template /etc/apache2/sites-enabled/apache.template
 
 RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load 
 
