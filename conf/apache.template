@@ -1,0 +1,13 @@
+<VirtualHost *:80>
+    DocumentRoot "/var/www/html/public"
+	#配置为自己的域名
+    ServerName {HOST}
+    ServerAlias {HOST}
+  <Directory "/var/www/html/public">
+      Options FollowSymLinks ExecCGI
+      AllowOverride All
+      Order allow,deny
+      Allow from all
+      Require all granted
+  </Directory>
+</VirtualHost>

@@ -21,4 +21,9 @@ if [ ! -f  "$install" ]; then
 	php artisan smartwiki:install --dbHost=$DB_HOST--dbName=$DB_DATABASE --dbPort=$DB_PORT --dbUser=$DB_USERNAME --dbPassword=$DB_PASSWORD --account=$ACCOUNT --password=$PASSWORD --email=$EMAIL
 fi
 
+if [ ! -z $APACHE_HOST ]; then
+	cp /etc/apache2/sites-enabled/apache.template /etc/apache2/sites-enabled/${APACHE_HOST}.conf
+	sed -i "s/{HOST}/${APACHE_HOST}/g"  /etc/apache2/sites-enabled/${APACHE_HOST}.conf
+fi
+
 exec apache2 -DFOREGROUND "$@"
