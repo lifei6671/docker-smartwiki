@@ -3,13 +3,13 @@ SmartWiki的Docker镜像
 ## 使用
 使用前，请手动导入resources/data/data.sql
 ```
-docker run --name smartwiki -p 80:80 -e DB_HOST=192.168.4.104 -e DB_PORT=3306 -e DB_DATABASE=smartwiki -e DB_USERNAME=root -e DB_PASSWORD=123456 -d daocloud.io/lifei6671/docker-smartwiki:latest
+docker run --name smartwiki -p 80:80 -e DB_HOST=192.168.4.104 -e DB_PORT=3306 -e DB_DATABASE=smartwiki -e DB_USERNAME=root -e DB_PASSWORD=123456 -v /var/www/html:/var/www/html/public/uploads -d daocloud.io/lifei6671/docker-smartwiki:latest
 ```
 
 自动安装请执行：
 
 ```
-docker run --name smartwiki -p 80:80 -e DB_HOST=192.168.4.104 -e DB_PORT=3306 -e DB_DATABASE=smartwiki -e DB_USERNAME=root -e DB_PASSWORD=123456 -e ACCOUNT=admin -e PASSWORD=123456 -e EMAIL=admin@iminho.me -e APACHE_HOST=demo.iminho.me -d daocloud.io/lifei6671/docker-smartwiki:latest
+docker run --name smartwiki -p 80:80 -e DB_HOST=192.168.4.104 -e DB_PORT=3306 -e DB_DATABASE=smartwiki -e DB_USERNAME=root -e DB_PASSWORD=123456 -e ACCOUNT=admin -e PASSWORD=123456 -e EMAIL=admin@iminho.me -e APACHE_HOST=demo.iminho.me -v /var/www/html:/var/www/html/public/uploads -d daocloud.io/lifei6671/docker-smartwiki:latest
 ```
 
 
