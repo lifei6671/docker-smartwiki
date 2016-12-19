@@ -19,14 +19,15 @@ install=/var/www/html/public/install.lock
 if [ ! -f  "$install" ]; then
 	cd /var/www/html
 	php artisan smartwiki:install --dbHost=$DB_HOST --dbName=$DB_DATABASE --dbPort=$DB_PORT --dbUser=$DB_USERNAME --dbPassword=$DB_PASSWORD --account=$ACCOUNT --password=$PASSWORD --email=$EMAIL
-fi
-
-if [ ! -z $APACHE_HOST ]; then
-	configFile=/etc/apache2/sites-enabled/${APACHE_HOST}.conf
-	if [ ! -f "$configFile" ]; then
-		cp /etc/apache2/sites-enabled/apache.template $configFile
-		sed -i "s/{HOST}/${APACHE_HOST}/g" $configFile
+	
+	if [ ! -z $APACHE_HOST ]; then
+		configFile=/etc/apache2/sites-enabled/${APACHE_HOST}.conf
+		if [ ! -f "$configFile" ]; then
+			cp /etc/apache2/sites-enabled/apache.template $configFile
+			sed -i "s/{HOST}/${APACHE_HOST}/g" $configFile
+		fi
 	fi
 fi
+
 
 exec apache2 -DFOREGROUND "$@"
