@@ -9,10 +9,6 @@ SmartWiki是一款针对IT团队开发的简单好用的文档管理系统。 �
 源码：https://github.com/lifei6671/SmartWiki
 
 ## 使用
-使用前，请手动导入resources/data/data.sql
-```
-docker run --name smartwiki -p 80:80 -e DB_HOST=192.168.4.104 -e DB_PORT=3306 -e DB_DATABASE=smartwiki -e DB_USERNAME=root -e DB_PASSWORD=123456 -v /var/www/html:/var/www/html/public/uploads -d daocloud.io/lifei6671/docker-smartwiki:latest
-```
 
 自动安装请执行：
 
